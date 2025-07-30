@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact Page </title>
+     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    
+   <header>
+    
+
+    <div class="atmlogo">
+<a href="index.html">
+    <img src="atmlogo.png" alt="logo">
+</a>
+    </div>
+
+    <!-- Hamburger Icon -->
+<div class="hamburger">
+  <i class="fas fa-bars"></i>
+</div>
+
+
+<ul class="list">
+    <li> <a href="index.html">Home</a></li>
+    <li> <a href="service.html">Our services</a></li>
+    <li> <a href="contact.html">Contact Page</a>
+
+
+</ul>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- CONTACT PAGE SECTION -->
+<section class="contact-section">
+  <div class="contact-container">
+    <h2>Contact us</h2>
+    <p class="contact-subtext">
+Whether you're looking to create a sleek website, revamp an existing one, or bring your brandonline with clarity and confidence
+- I'm here to help. I design responsive, user friendly websites that not only look great but are optimized to convert. I monitor site 
+performance and visitor behavior using Analytical tools to understand traffic patterns
+ and improve results. if you're ready to scale or just need expert web support, let's connect.
+    </p>
+
+    <div class="contact-info-grid">
+      <div class="contact-info-box">
+        <h4>📍 Location</h4>
+        <p>Lagos, Nigeria (We work with brands worldwide)</p>
+      </div>
+      <br>
+      <br>
+
+      <div class="contact-info-box">
+        <h4>⏱️ Response Time</h4>
+        <p>We typically respond within 1–3 hours, any time of the day.</p>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="contact-cards">
+      <!-- WhatsApp -->
+      <div class="contact-card" onclick="openWhatsApp()">
+          <a href="https://wa.me/2349123709511" class="whatsapp" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/25D366/whatsapp.png" alt="WhatsApp">
+        <p>Chat on WhatsApp</p>
+      </div>
+
+      <!-- Email -->
+      <a href="mailto:temitopemichael619@gmail.com" class="contact-card">
+        <img src="https://img.icons8.com/ios-filled/50/EA4335/gmail.png" alt="Email">
+        <p>Send an Email</p>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/bdmsocialsonline" target="_blank" class="contact-card">
+        <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram">
+        <p>DM on Instagram</p>
+      </a>
+    </div>
+
+    <!-- Google Map Embed -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126835.79647154361!2d3.3217080036238963!3d6.524379265212267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c85b8450655%3A0x57c70a44d2f19b71!2sLagos!5e0!3m2!1sen!2sng!4v1622222222222!5m2!1sen!2sng"
+        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Client Testimonials -->
+    <div class="client-reviews">
+      <h3>What Our Clients Say</h3>
+      <br>
+      <div class="review">
+        <p><em> " Clear communication, timely updates, and top-notch results. I'll definetely hire again </em>🔥."<br>— Fatima B.,Fashion Entrepreneur</p>
+      </div>
+      <br>
+      <div class="review">
+        <p><em>"Listened carefully to what i wanted and brought it to life"</em><br>— Sophia M., Event planner</p>
+      </div>
+      <br>
+      <div class="review">
+        <p><em>"Wasn't sure what i needed, but they guided me and delivered something perfect"</em><br>-Tunde A., Music Producer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function openWhatsApp() {
+    const phone = "2348065512071";
+    const message = "Hi BDM Socials, I’m interested in your digital marketing services. Let’s talk!";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>Creative web design, branding & digital services — powered by ATM.</p>
+
+   <div class="footer-icons">
+  <a href="https://wa.me/2349123709511" class="whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/adeoye-temitope-michael" class="linkedin" target="_blank">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://www.snapchat.com/add/orisha.atm" class="snapchat" target="_blank">
+    <i class="fab fa-snapchat-ghost"></i>
+  </a>
+</div>
+
+
+    <p class="copyright">
+      &copy; <span id="year"></span> ATM. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script src="atm.js"></script>
+</body>
+</html>

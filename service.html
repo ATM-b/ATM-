@@ -169,9 +169,19 @@ layout design, visual appeal, and functionality structure.
 </section>
 <br>
 
+
+<form id="contact-form">
+  <input type="text" name="from_name" placeholder="Your Name" required>
+  <input type="text" name="phone" placeholder="Phone Number" required>
+  <input type="text" name="social_link" placeholder="Social Media Link">
+  <input type="text" name="service_needed" placeholder="Service Needed" required>
+  <button type="submit">Send</button>
+</form>
+
+
 <footer class="site-footer">
   <div class="footer-content">
-    <p>Creative web design, branding & digital services — powered by ATM.</p>
+    <p>Creative Web Development, branding & digital services — powered by ATM.</p>
 
    <div class="footer-icons">
   <a href="https://wa.me/2349123709511" class="whatsapp" target="_blank">
@@ -200,5 +210,24 @@ layout design, visual appeal, and functionality structure.
 <script src="js/bootstrap.bundle.min.js"></script>
 
 <script src="atm.js"></script>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init("VF3lCUOgESeUKp9ip"); // replace with your real public key
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", this)
+      .then(function(response) {
+        alert("Thanks! Your request is being validated...");
+        console.log("SUCCESS!", response.status, response.text);
+      }, function(error) {
+        alert("Oops, something went wrong...");
+        console.log("FAILED...", error);
+      });
+  });
+</script>
+
 </body>
 </html>

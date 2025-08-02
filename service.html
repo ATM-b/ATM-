@@ -212,19 +212,36 @@ layout design, visual appeal, and functionality structure.
 <script src="atm.js"></script>
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  emailjs.init("VF3lCUOgESeUKp9ip"); // replace with your real public key
+
+  <script>
+  emailjs.init("VF3lCUOgESeUKp9ip"); // your real public key
 
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
+
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
 
     emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", this)
       .then(function(response) {
         alert("Thanks! Your request is being validated...");
         console.log("SUCCESS!", response.status, response.text);
+
+        // Re-enable after 5 seconds
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Request";
+        }, 5000);
       }, function(error) {
         alert("Oops, something went wrong...");
         console.log("FAILED...", error);
+
+        // Still re-enable in case of failure
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Request";
+        }, 5000);
       });
   });
 </script>

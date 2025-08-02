@@ -175,7 +175,8 @@ layout design, visual appeal, and functionality structure.
   <input type="text" name="phone" placeholder="Phone Number" required>
   <input type="text" name="social_link" placeholder="Social Media Link">
   <input type="text" name="service_needed" placeholder="Service Needed" required>
-  <button type="submit">Send</button>
+<button type="submit" id="submitBtn">Send Request</button>
+
 </form>
 
 
@@ -213,22 +214,28 @@ layout design, visual appeal, and functionality structure.
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-  <script>
-  emailjs.init("VF3lCUOgESeUKp9ip"); // your real public key
+ <script>
+  emailjs.init("VF3lCUOgESeUKp9ip");
 
   document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    const form = this;
     const submitBtn = document.getElementById("submitBtn");
+
+    // Lock the button
     submitBtn.disabled = true;
     submitBtn.innerText = "Sending...";
 
-    emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", this)
+    emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", form)
       .then(function(response) {
         alert("Thanks! Your request is being validated...");
         console.log("SUCCESS!", response.status, response.text);
 
-        // Re-enable after 5 seconds
+        // Reset form manually (without crashing layout)
+        form.reset();
+
+        // Re-enable button after 5 seconds
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerText = "Send Request";
@@ -237,7 +244,7 @@ layout design, visual appeal, and functionality structure.
         alert("Oops, something went wrong...");
         console.log("FAILED...", error);
 
-        // Still re-enable in case of failure
+        // Re-enable even if it fails
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerText = "Send Request";
@@ -245,6 +252,7 @@ layout design, visual appeal, and functionality structure.
       });
   });
 </script>
+
 
 </body>
 </html>

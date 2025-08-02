@@ -709,6 +709,12 @@ font-weight: bold;
   border: none;
 }
 
+form {
+  min-height: 300px; /* adjust based on your layout */
+  transition: all 0.3s ease;
+}
+
+
 @media screen and (max-width: 768px){
 
 .pclass{

@@ -44,4 +44,31 @@ border-radius: 20px;
   opacity: 1; /* When “show” class is added, fade in */
 }
 
+.social-links a {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+}
+
+/* Glow effect on click and focus */
+.social-links a:focus,
+.social-links a:active {
+  outline: none;
+  box-shadow:
+    0 0 8px 4px rgba(15, 157, 88, 0.7),
+    0 0 12px 8px rgba(15, 157, 88, 0.5);
+  background-color: rgba(15, 157, 88, 0.15);
+  color: #0f9d58 !important; /* green glow color */
+  z-index: 10;
+}
+
+.social-links a:focus i,
+.social-links a:active i {
+  filter: drop-shadow(0 0 6px #0f9d58);
+}
+
 

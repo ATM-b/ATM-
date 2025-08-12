@@ -28,6 +28,7 @@
   <link href="assets/css/main.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
+
   <!-- =======================================================
   * Template Name: DevFolio
   * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
@@ -104,7 +105,7 @@
 
             <div class="row justify-content-between gy-4">
               <div class="col-lg-5">
-                <img src="atm2.png" class="img-fluid" alt="">
+                <img src="atm22.png" class="img-fluid" alt="">
               </div>
               <div class="col-lg-7 about-info">
                 <p><strong>Name: </strong> <span>Adeoye Temitope Michael</span></p>
@@ -177,7 +178,7 @@
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Resume</h2>
+    <h2>Résumé</h2>
     <p>A driven and versatile professional blending web development, digital analytics, and administrative expertise to deliver functional, user-focused solutions.</p>
   </div><!-- End Section Title -->
 
@@ -382,14 +383,14 @@
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
           <i class="bi bi-emoji-smile display-4 text-warning mb-2"></i>
-          <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="2" class="purecounter">15</span>
+          <span data-purecounter-start="0" data-purecounter-end="21" data-purecounter-duration="2" class="purecounter">15</span>
           <p style="color: antiquewhite;">Happy Clients </p>
         </div>
       </div><!-- End Stats Item -->
 
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
-          <i class="bi bi-laptop display-4 text-primary mb-2"></i>
+          <i class="bi bi-laptop display-4 text-primary mb-2" style="color: white !important;"></i>
           <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="2" class="purecounter">25</span>
           <p style="color: antiquewhite;">Web Projects Delivered</p>
         </div>
@@ -397,7 +398,7 @@
 
       <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
-          <i class="bi bi-clock-history display-4 text-success mb-2"></i>
+          <i class="bi bi-clock-history display-4 text-success mb-2" style="color: yellow !important;"></i>
           <span data-purecounter-start="0" data-purecounter-end="800" data-purecounter-duration="2" class="purecounter">800</span>
           <p style="color: antiquewhite;">Hours Coding</p>
         </div>
@@ -854,40 +855,24 @@
                 </div>
               </div>
             </div><!-- End Info Item -->
+<form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+  <input type="text" name="from_name" class="form-control mb-3" placeholder="Your Name" required>
+  <input type="text" name="phone" class="form-control mb-3" placeholder="Phone Number" required>
+  <input type="text" name="social_link" class="form-control mb-3" placeholder="Social Media Link">
+  <input type="text" name="service_needed" class="form-control mb-3" placeholder="Service Needed" required>
+  
+  <div class="text-center mb-3">
+    <div class="loading" style="display:none;">Loading</div>
+    <div class="error-message text-danger"></div>
+    <div class="sent-message text-success" style="display:none;">Your message has been sent. Thank you!</div>
+  </div>
 
+  <button type="submit" id="submitBtn" class="btn btn-primary w-100">Send Request</button>
+</form>
           </div>
         </div>
 
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
-
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
-
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form><!-- End Contact Form -->
-
+       
       </div>
 
     </section><!-- /Contact Section -->
@@ -937,7 +922,57 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
+<script>
+emailjs.init("VF3lCUOgESeUKp9ip");
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const submitBtn = document.getElementById("submitBtn");
+
+    // Lock the button
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
+    form.querySelector('.loading').style.display = 'block';
+    form.querySelector('.error-message').innerText = '';
+    form.querySelector('.sent-message').style.display = 'none';
+
+    emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", form)
+      .then(function(response) {
+        alert("Thanks! Your request is being validated...");
+        console.log("SUCCESS!", response.status, response.text);
+
+        // Reset form manually (without crashing layout)
+        form.reset();
+
+        form.querySelector('.loading').style.display = 'none';
+        form.querySelector('.sent-message').style.display = 'block';
+
+        // Re-enable button after 5 seconds
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Request";
+          form.querySelector('.sent-message').style.display = 'none';
+        }, 5000);
+      }, function(error) {
+        alert("Oops, something went wrong...");
+        console.log("FAILED...", error);
+
+        form.querySelector('.loading').style.display = 'none';
+        form.querySelector('.error-message').innerText = 'Failed to send message, please try again.';
+
+        // Re-enable even if it fails
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Request";
+          form.querySelector('.error-message').innerText = '';
+        }, 5000);
+      });
+  });
+</script>
 </body>
 
 </html>

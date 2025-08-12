@@ -11,19 +11,4 @@ border-radius: 20px;
 }
 
 
-.stats {
-  position: relative;
-  z-index: 1;
-  overflow: hidden; /* keep overlay inside */
-  border-radius: 8px; /* if you want rounded corners */
-}
-
-.stats img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  filter: brightness(0.6); /* darken the image a bit */
-  border-radius: 8px;
-}
 

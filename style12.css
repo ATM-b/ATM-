@@ -27,3 +27,21 @@ border-radius: 20px;
   border-radius: 8px;
 }
 
+.php-email-form .loading,
+.php-email-form .error-message,
+.php-email-form .sent-message {
+  min-height: 30px; /* Reserves space so these messages don’t make the form jump */
+  transition: opacity 0.3s ease; /* Smooth fade in/out */
+}
+
+.php-email-form .loading,
+.php-email-form .sent-message {
+  opacity: 0; /* Start invisible */
+}
+
+.php-email-form .loading.show,
+.php-email-form .sent-message.show {
+  opacity: 1; /* When “show” class is added, fade in */
+}
+
+

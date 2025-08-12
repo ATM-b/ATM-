@@ -925,53 +925,52 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 <script>
-emailjs.init("VF3lCUOgESeUKp9ip");
+       emailjs.init("VF3lCUOgESeUKp9ip");
 
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    const form = this;
-    const submitBtn = document.getElementById("submitBtn");
+  const form = this;
+  const submitBtn = document.getElementById("submitBtn");
 
-    // Lock the button
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Sending...";
-    form.querySelector('.loading').style.display = 'block';
-    form.querySelector('.error-message').innerText = '';
-    form.querySelector('.sent-message').style.display = 'none';
+  // Lock the button and show loading
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Sending...";
+  form.querySelector('.loading').classList.add('show');
+  form.querySelector('.error-message').classList.remove('show');
+  form.querySelector('.sent-message').classList.remove('show');
 
-    emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", form)
-      .then(function(response) {
-        alert("Thanks! Your request is being validated...");
-        console.log("SUCCESS!", response.status, response.text);
+  emailjs.sendForm("service_5fqjmt9", "template_yr5tdfo", form)
+    .then(function(response) {
+      alert("Thanks! Your request is being validated...");
+      console.log("SUCCESS!", response.status, response.text);
 
-        // Reset form manually (without crashing layout)
-        form.reset();
+      form.reset();
 
-        form.querySelector('.loading').style.display = 'none';
-        form.querySelector('.sent-message').style.display = 'block';
+      form.querySelector('.loading').classList.remove('show');
+      form.querySelector('.sent-message').classList.add('show');
 
-        // Re-enable button after 5 seconds
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerText = "Send Request";
-          form.querySelector('.sent-message').style.display = 'none';
-        }, 5000);
-      }, function(error) {
-        alert("Oops, something went wrong...");
-        console.log("FAILED...", error);
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Request";
+        form.querySelector('.sent-message').classList.remove('show');
+      }, 5000);
+    }, function(error) {
+      alert("Oops, something went wrong...");
+      console.log("FAILED...", error);
 
-        form.querySelector('.loading').style.display = 'none';
-        form.querySelector('.error-message').innerText = 'Failed to send message, please try again.';
+      form.querySelector('.loading').classList.remove('show');
+      form.querySelector('.error-message').classList.add('show');
 
-        // Re-enable even if it fails
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerText = "Send Request";
-          form.querySelector('.error-message').innerText = '';
-        }, 5000);
-      });
-  });
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Request";
+        form.querySelector('.error-message').classList.remove('show');
+      }, 5000);
+    });
+});
+
+   
 </script>
 </body>
 

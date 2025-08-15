@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM - Tic-Tac-Toe</title>
+
+  <!-- Google Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7W4F74WB7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H7W4F74WB7');
+  </script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS (Bootstrap, icons, AOS, Glightbox, Swiper) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM - Tic-Tac-Toe</title>
+
+  <!-- Google Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7W4F74WB7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H7W4F74WB7');
+  </script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS (Bootstrap, icons, AOS, Glightbox, Swiper) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Custom CSS (your overrides) -->
+  <link href="style.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="style12.css">
+  <!-- <link rel="stylesheet" href=""> -->
+
+
+
+  <!-- Ensure full-width header -->
+  <!-- <style>
+    .header {
+      width: 100vw !important;
+      max-width: 100% !important;
+    }
+  </style>
+</head> -->
+
+  <!-- Ensure full-width header -->
+  <style>
+
+ *{
+    margin: 0% !important;
+    padding: 0% !important;
+    box-sizing: border-box !important;
+}
+    .header {
+      width: 100vw !important;
+      max-width: 100% !important;
+    }
+
+/* 
+   *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+} */
+
+
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  h1 { margin-bottom: 40px; text-align: center; }
+
+  /* Tic-Tac-Toe board */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+  }
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: #f1f1f1;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .cell:hover { background: #ddd; }
+  .reset-btn { margin-top: 30px; }
+
+  @media (max-width: 500px) {
+    .board { grid-template-columns: repeat(3, 70px); grid-template-rows: repeat(3, 70px); }
+    .cell { font-size: 1.5rem; }
+  }
+
+  /* Header fix */
+  /* .header {
+    width: 100vw;
+    background-color: black;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .navmenu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  } */
+  /* .navmenu ul li { position: relative; }
+  .navmenu ul li a { text-decoration: none; padding: 8px 12px; display: block; color: #000; }
+  .navmenu ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    min-width: 180px;
+    /* z-index: 9999; */
+  /* }
+  .navmenu ul li ul li a { padding: 8px 16px; }
+  .dropdown:hover ul { display: block; } */
+
+</style>
+  </head>
+
+<body>
+
+<!-- Header -->
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="d-flex align-items-center justify-content-between w-100 px-4 py-2">
+    <!-- Logo -->
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="atmlogo.png" alt="logo" style="height:50px;">
+    </a>
+
+    <!-- Navigation -->
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">About</a></li>
+        <li><a href="index.html">Services</a></li>
+        <li><a href="index.html">Portfolio</a></li>
+        <li class="dropdown">
+          <a href="#"><span>Sections</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <ul>
+            <li><a href="cert.html">Certifications</a></li>
+            <li><a href="tictactoe.html">Fun Zone - Tic-Tac-Toe</a></li>
+          </ul>
+        </li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+  </div>
+</header>
+<br><br><br>
+
+<h1>Tic-Tac-Toe - Unbeatable ATM</h1>
+<br><br>
+<div class="board" id="board">
+  <div class="cell" data-index="0"></div>
+  <div class="cell" data-index="1"></div>
+  <div class="cell" data-index="2"></div>
+  <div class="cell" data-index="3"></div>
+  <div class="cell" data-index="4"></div>
+  <div class="cell" data-index="5"></div>
+  <div class="cell" data-index="6"></div>
+  <div class="cell" data-index="7"></div>
+  <div class="cell" data-index="8"></div>
+</div> <br><br>
+<button class="btn btn-primary reset-btn" id="resetBtn">Reset Game</button>
+<br><br>
+<!-- Vendor JS -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+const cells = document.querySelectorAll('.cell');
+const resetBtn = document.getElementById('resetBtn');
+let gameState = Array(9).fill('');
+let gameActive = true;
+const player = 'X', ai = 'O';
+const winSound = new Audio('assets/sounds/win.mp3');
+
+const winConditions = [
+  [0,1,2],[3,4,5],[6,7,8],
+  [0,3,6],[1,4,7],[2,5,8],
+  [0,4,8],[2,4,6]
+];
+
+cells.forEach(cell => cell.addEventListener('click', playerMove));
+resetBtn.addEventListener('click', resetGame);
+
+function playerMove(e) {
+  if(!gameActive) return;
+  const index = e.target.getAttribute('data-index');
+  if(gameState[index] !== '') return;
+
+  makeMove(index, player);
+  if(checkWin(player)) { endGame('You win!'); return; }
+  if(isDraw()) { endGame("It's a draw!"); return; }
+
+  setTimeout(() => aiMove(), 200);
+}
+
+function makeMove(index, symbol) {
+  gameState[index] = symbol;
+  cells[index].textContent = symbol;
+}
+
+function aiMove() {
+  if(!gameActive) return;
+  const best = minimax(gameState, ai).index;
+  makeMove(best, ai);
+
+  if(checkWin(ai)) { endGame("Computer wins!"); return; }
+  if(isDraw()) { endGame("It's a draw!"); return; }
+}
+
+function checkWin(sym) {
+  return winConditions.some(cond => cond.every(i => gameState[i] === sym));
+}
+
+function isDraw() {
+  return gameState.every(cell => cell !== '');
+}
+
+function endGame(message) {
+  gameActive = false;
+  winSound.play();
+  confetti({particleCount: 150, spread: 70, origin: {y: 0.6}});
+  setTimeout(() => alert(message), 100);
+}
+
+function minimax(board, playerTurn) {
+  const avail = board.map((v,i)=>v===''?i:null).filter(v=>v!==null);
+  if(checkWin(ai)) return {score: 10};
+  if(checkWin(player)) return {score: -10};
+  if(avail.length === 0) return {score: 0};
+
+  const moves = [];
+  for(const i of avail) {
+    const move = { index: i };
+    board[i] = playerTurn;
+    const result = minimax(board, playerTurn===ai?player:ai);
+    move.score = result.score;
+    board[i] = '';
+    moves.push(move);
+  }
+
+  let bestMove;
+  if(playerTurn === ai){
+    let bestScore = -Infinity;
+    moves.forEach(m => { if(m.score > bestScore){ bestScore = m.score; bestMove = m; }});
+  } else {
+    let bestScore = Infinity;
+    moves.forEach(m => { if(m.score < bestScore){ bestScore = m.score; bestMove = m; }});
+  }
+  return bestMove;
+}
+
+function resetGame() {
+  gameState.fill('');
+  cells.forEach(c => c.textContent='');
+  gameActive = true;
+}
+</script>
+
+
+
+ <footer id="footer" class="footer accent-background py-4">
+<br><br><br><br><br> <br>
+  <div class="container text-center">
+    <div class="copyright mb-3">
+      <p>© 2025 <strong class="px-1 sitename">ATM</strong> All rights reserved.</p>
+    <p>Creative Web Programming, Traffic Analytics & Branding </p>
+    </div>
+
+    <div class="social-links d-flex justify-content-center gap-4">
+      <a href="https://wa.me/09123709511" target="_blank" aria-label="WhatsApp" class="text-white fs-4">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a href="https://www.snapchat.com/add/orisha.atm" target="_blank" aria-label="Snapchat" class="text-white fs-4">
+        <i class="bi bi-snapchat"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/orisha-atm" target="_blank" aria-label="LinkedIn" class="text-white fs-4">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="mailto:temitopemichael619@gmail.com" aria-label="Email" class="text-white fs-4">
+        <i class="bi bi-envelope-fill"></i>
+      </a>
+    </div>
+
+  </div>
+
+</footer>
+  <!-- Local Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

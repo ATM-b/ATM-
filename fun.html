@@ -75,53 +75,17 @@
   <!-- <link rel="stylesheet" href=""> -->
 
 
+<style>
 
-  <!-- Ensure full-width header -->
-  <!-- <style>
-    .header {
-      width: 100vw !important;
-      max-width: 100% !important;
-    }
-  </style>
-</head> -->
-
-  <!-- Ensure full-width header -->
-  <style>
-
- *{
-    margin: 0% !important;
-    padding: 0% !important;
-    box-sizing: border-box !important;
+h1{
+  text-align: center;
 }
-    .header {
-      width: 100vw !important;
-      max-width: 100% !important;
-    }
-
-/* 
-   *{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-} */
-
-
-
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 20px;
-    font-family: 'Poppins', sans-serif;
-  }
-  h1 { margin-bottom: 40px; text-align: center; }
-
-  /* Tic-Tac-Toe board */
   .board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 5px;
+    justify-content: center;
   }
   .cell {
     display: flex;
@@ -135,6 +99,9 @@
   }
   .cell:hover { background: #ddd; }
   .reset-btn { margin-top: 30px; }
+
+
+
 
   @media (max-width: 500px) {
     .board { grid-template-columns: repeat(3, 70px); grid-template-rows: repeat(3, 70px); }
@@ -177,37 +144,51 @@
 
 <body>
 
-<!-- Header -->
-<header id="header" class="header d-flex align-items-center sticky-top">
-  <div class="d-flex align-items-center justify-content-between w-100 px-4 py-2">
-    <!-- Logo -->
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="atmlogo.png" alt="logo" style="height:50px;">
-    </a>
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <!-- Navigation -->
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="index.html">About</a></li>
-        <li><a href="index.html">Services</a></li>
-        <li><a href="index.html">Portfolio</a></li>
-        <li class="dropdown">
-          <a href="#"><span>Sections</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          <ul>
-            <li><a href="cert.html">Certifications</a></li>
-            <li><a href="tictactoe.html">Fun Zone - Tic-Tac-Toe</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-    </nav>
-  </div>
-</header>
-<br><br><br>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="atmlogo.png" alt="logo">
+        <!-- <h1 class="sitename">DevFolio</h1> -->
+         <!-- <img src="atmlogo.png" alt="logo"> -->
+      </a>
 
-<h1>Tic-Tac-Toe - Unbeatable ATM</h1>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li class="dropdown"><a href="#"><span>Sections</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="cert.html">Certifications</a></li>
+              <!-- <li class="dropdown"><a href="#"><span>Deep Dr</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a> -->
+                <!-- <ul>
+                  <li><a href="fun.html">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul> -->
+              <!-- </li> -->
+ <li><a href="fun.html">Tic-Tac-Toe</a></li>
+
+              <li><a href="map.html">Map</a></li>
+              <!-- <li><a href="#">Dropdown 4</a></li> -->
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      
+
+    </div>
+
+  </header>
+<br><br>
+<h1>Tic-Tac-Toe</h1>
 <br><br>
 <div class="board" id="board">
   <div class="cell" data-index="0"></div>
@@ -280,7 +261,7 @@ function isDraw() {
 function endGame(message) {
   gameActive = false;
   winSound.play();
-  confetti({particleCount: 150, spread: 70, origin: {y: 0.6}});
+  // confetti({particleCount: 150, spread: 70, origin: {y: 0.6}});
   setTimeout(() => alert(message), 100);
 }
 
@@ -320,8 +301,10 @@ function resetGame() {
 
 
 
+
+  
  <footer id="footer" class="footer accent-background py-4">
-<br><br><br><br><br> <br>
+<br><br><br><br><br><br><br> <br><br>
   <div class="container text-center">
     <div class="copyright mb-3">
       <p>© 2025 <strong class="px-1 sitename">ATM</strong> All rights reserved.</p>
@@ -346,6 +329,7 @@ function resetGame() {
   </div>
 
 </footer>
+
   <!-- Local Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>

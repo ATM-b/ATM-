@@ -98,7 +98,11 @@ h1{
     transition: background 0.2s;
   }
   .cell:hover { background: #ddd; }
-  .reset-btn { margin-top: 30px; }
+
+  .reset-btn { margin-top: 30px; 
+    margin-left: 600px;
+  
+  }
 
 
 
@@ -106,6 +110,9 @@ h1{
   @media (max-width: 500px) {
     .board { grid-template-columns: repeat(3, 70px); grid-template-rows: repeat(3, 70px); }
     .cell { font-size: 1.5rem; }
+    .reset-btn {
+      margin-left: 140px;
+    }
   }
 
   /* Header fix */
@@ -200,7 +207,7 @@ h1{
   <div class="cell" data-index="6"></div>
   <div class="cell" data-index="7"></div>
   <div class="cell" data-index="8"></div>
-</div> <br><br>
+</div>
 <button class="btn btn-primary reset-btn" id="resetBtn">Reset Game</button>
 <br><br>
 <!-- Vendor JS -->
